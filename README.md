@@ -39,6 +39,6 @@ I'm always open to meeting fellow developers, collaborating on projects, or just
 
 
 ## 🎯 Fun Fact
-When I'm not coding, I love [your hobby - e.g., photography, gaming, hiking]!
+When I'm not coding, I love [gaming, hiking,watching soccer]!
 
 ⭐ **Thanks for visiting my profile!** Feel free to explore my repositories and don't hesitate to reach out!
