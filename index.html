@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>About Me</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+textarea{
+    height: 150px;
+    resize: vertical;
+}
+button{
+    background-color:#4CAF50;
+    color: white; 
+    padding:10px 15px; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover{
+    background-color:#45a049; 
+}
+.required:after {
+    content:"*";
+    color: red;
+}
+.error{
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.error-border{
+    border-color: red;
+}
+  </style>
+</head>
+<body>
+  
+  <header>
+    
+    <h1> Hi, I'm Moses Maina</h1>
+    <p>Front End Developer</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contacts">Contacts</a>
+
+    </nav>
+</header>
+
+<main>
+  <section class="about">
+    <h2>About Me</h2>
+    <p>I'm passionate about building beautiful,user friendly websites
+      using HTML,CSS and Javascript.
+    </p>
+
+  </section>
+
+  <section class="skills">
+    <h2>My Skills</h2>
+    <ul>
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>Javascript</li>
+
+    </ul>
+  </section>
+  <section id="getintouch">
+    <h2>Get in Touch</h2>
+    <a href="https://www.github.com/moses88-creator" target="_blank">My GitHub</a>
+    <a href="http://www.linkedin.com/in/moses-maina-a21273160" target="_blank">My LinkedIn</a>
+    
+    <P>Email: <a href="mailto:mosesmaina88@gmail.com">mosesmaina88@gmail.com</a></P>
+
+</section>
+<section id="contact">
+  <h2>Contact me</h2>
+
+  <form id="contactForm" novalidate>
+    <div class="form-group">
+      <label for="name" class="required">Name</label>
+      <input type="text" id="name" name="name" required>
+      <div id="nameError" class="error" aria-live="polite"></div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="required">Email</label>
+      <input type="email" id="email" name="email" required>
+      <div id="emailError" class="error" aria-live="polite"></div>
+  </div>
+
+  <div class="form-group">
+    <label for="subject">Subject</label>
+    <input type="text" id="subject" name="subject">
+</div>
+
+    
+    <div class="form-group">
+      <label for="message" class="required">Message</label>
+      <textarea id="message" name="message" required></textarea>
+      <div id="messageError" class="error"  aria-live="polite"></div>
+    </div>
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+</main>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Reset previous errors
+      resetErrors();
+      
+      // Validate form
+      let isValid = true;
+      
+      // Name validation
+      const name = document.getElementById('name').value.trim();
+      if (name === '') {
+          showError('nameError', 'Name is required');
+          document.getElementById('name').classList.add('error-border');
+          isValid = false;
+      }
+      
+      // Email validation
+      const email = document.getElementById('email').value.trim();
+      if (email === '') {
+          showError('emailError', 'Email is required');
+          document.getElementById('email').classList.add('error-border');
+          isValid = false;
+      } else if (!isValidEmail(email)) {
+          showError('emailError', 'Please enter a valid email address');
+          document.getElementById('email').classList.add('error-border');
+          isValid = false;
+      }
+      
+      // Message validation
+      const message = document.getElementById('message').value.trim();
+      if (message === '') {
+          showError('messageError', 'Message is required');
+          document.getElementById('message').classList.add('error-border');
+          isValid = false;
+      }
+      
+      // If form is valid, submit it (in a real scenario)
+      if (isValid) {
+          alert('Form submitted successfully!');
+          // In a real application, you would send the data to a server here
+          // this.submit(); // Uncomment to actually submit the form
+      }
+  });
+  
+  function showError(elementId, message) {
+      const errorElement = document.getElementById(elementId);
+      errorElement.textContent = message;
+  }
+  
+  function resetErrors() {
+      const errorElements = document.querySelectorAll('.error');
+      errorElements.forEach(element => {
+          element.textContent = '';
+      });
+      
+      const errorBorders = document.querySelectorAll('.error-border');
+      errorBorders.forEach(element => {
+          element.classList.remove('error-border');
+      });
+  }
+  
+  function isValidEmail(email) {
+      // Simple email validation regex
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+  }
+  
+  // Add real-time validation as users type
+  document.getElementById('name').addEventListener('input', function() {
+      if (this.value.trim() !== '') {
+          this.classList.remove('error-border');
+          document.getElementById('nameError').textContent = '';
+      }
+  });
+  
+  document.getElementById('email').addEventListener('input', function() {
+      if (this.value.trim() !== '' && isValidEmail(this.value.trim())) {
+          this.classList.remove('error-border');
+          document.getElementById('emailError').textContent = '';
+      }
+  });
+  
+  document.getElementById('message').addEventListener('input', function() {
+      if (this.value.trim() !== '') {
+          this.classList.remove('error-border');
+          document.getElementById('messageError').textContent = '';
+      }
+  });
+</script>
+<footer>
+  <p>© 2025 Moses Maina.All rights reserved</p>
+</footer>
+</body>
+</html>
+    
