@@ -35,8 +35,7 @@ Welcome to my coding journey! I'm passionate about building beautiful, responsiv
 
 ## 📫 Let's Connect!
 I'm always open to meeting fellow developers, collaborating on projects, or just chatting about code!
-
-
+www.linkedin.com/in/moses-maina-a21273160
 
 ## 🎯 Fun Fact
 When I'm not coding, I love [gaming, hiking,watching soccer]!
